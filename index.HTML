@@ -8,9 +8,9 @@
 
 		<style>
 			#drawingCanvasContainer {
-            position: relative;
-            width: 800px;
-            margin: 0 auto;
+				position: relative;
+				width: 800px;
+				margin: 0 auto;
 			}
 			#drawingCanvas {
 				border: 1px solid #000;
@@ -23,17 +23,17 @@
 				height: 30px;
 				margin-right: 10px;
 				cursor: pointer;
+				border-radius: 50%;
 			}
-			#erase-button {
-				display: inline-block;
+			.eraser-button {
+				margin-left: 10px;
 				cursor: pointer;
 			}
-			#buttonContainer {
-				position: absolute;
-				top: 0;
-				right: 0;
+			#colorPalette {
 				margin-top: 10px;
-				margin-right: 10px;
+			}
+			.slider-container {
+				margin-top: 10px;
 			}
 
 
@@ -64,9 +64,6 @@
 			.button:hover {
             background-color: hsl(180, 65%, 71%); /* 호버 시 배경색을 짙은 푸른색으로 변경 */ 
 			}
-
-
-
 
 			.dropbtn {
 				background-color: #4CAF50;
@@ -172,62 +169,90 @@
 		
 
 		<div id="drawingCanvasContainer">
-			<div id="buttonContainer">
-				<button class="color-button" style="background-color: black;" onclick="setColor('black')"></button>
+			<canvas id="drawingCanvas" width="800" height="600"></canvas>
+			<!-- 색상 선택 버튼 -->
+			<div id="colorPalette">
 				<button class="color-button" style="background-color: red;" onclick="setColor('red')"></button>
-				<button class="color-button" style="background-color: green;" onclick="setColor('green')"></button>
-				<button class="color-button" style="background-color: blue;" onclick="setColor('blue')"></button>
 				<button class="color-button" style="background-color: orange;" onclick="setColor('orange')"></button>
 				<button class="color-button" style="background-color: yellow;" onclick="setColor('yellow')"></button>
+				<button class="color-button" style="background-color: lime;" onclick="setColor('lime')"></button>
+				<button class="color-button" style="background-color: green;" onclick="setColor('green')"></button>
+				<button class="color-button" style="background-color: blue;" onclick="setColor('blue')"></button>
 				<button class="color-button" style="background-color: purple;" onclick="setColor('purple')"></button>
-				<button id="erase-button" onclick="setEraser()">지우개</button>
+				<button class="color-button" style="background-color: black;" onclick="setColor('black')"></button>
+				<button class="eraser-button" onclick="setEraser()">지우개</button>
 			</div>
-			<canvas id="drawingCanvas" width="800" height="600"></canvas>
+			<!-- 슬라이더를 통한 지우개 크기 조정 -->
+			<div class="slider-container">
+				<label for="eraserSize">지우개 크기:</label>
+				<input type="range" min="1" max="20" value="5" id="eraserSize" onchange="setEraserSize(this.value)">
+				<span id="eraserSizeValue">5</span>
+			</div>
+			<!-- 슬라이더를 통한 색상 크기 조정 -->
+			<div class="slider-container">
+				<label for="brushSize">색상 크기:</label>
+				<input type="range" min="1" max="20" value="5" id="brushSize" onchange="setBrushSize(this.value)">
+				<span id="brushSizeValue">5</span>
+			</div>
 		</div>
+		
 		<script>
 			const canvas = document.getElementById('drawingCanvas');
 			const context = canvas.getContext('2d');
 			let isDrawing = false;
 			let currentColor = 'black';
-	
+			let eraserSize = 5;
+			let brushSize = 5;
+		
 			function draw(e) {
 				if (!isDrawing) return;
-	
-				const x = e.offsetX;
-				const y = e.offsetY;
-	
+		
+				const rect = canvas.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+		
 				context.lineTo(x, y);
 				context.strokeStyle = currentColor;
-				context.lineWidth = currentColor === 'white' ? 5 * 5 : 5;
+				context.lineWidth = currentColor === 'white' ? eraserSize * 5 : brushSize;
 				context.stroke();
 			}
-	
+		
 			function setColor(color) {
 				currentColor = color;
 			}
-	
+		
 			function setEraser() {
-				currentColor = 'white'; // 지우개는 흰색으로 설정
+				currentColor = 'white';
 			}
-	
+		
+			function setEraserSize(size) {
+				eraserSize = size;
+				document.getElementById('eraserSizeValue').textContent = size;
+			}
+		
+			function setBrushSize(size) {
+				brushSize = size;
+				document.getElementById('brushSizeValue').textContent = size;
+			}
+		
 			canvas.addEventListener('mousedown', (e) => {
 				isDrawing = true;
 				context.beginPath();
 				context.moveTo(e.offsetX, e.offsetY);
 				canvas.addEventListener('mousemove', draw);
 			});
-	
+		
 			canvas.addEventListener('mouseup', () => {
 				isDrawing = false;
 				canvas.removeEventListener('mousemove', draw);
 			});
-	
+		
 			canvas.addEventListener('mouseout', () => {
 				isDrawing = false;
 				canvas.removeEventListener('mousemove', draw);
 			});
 		</script>
-	
+
 
 	</body>
 </html>
