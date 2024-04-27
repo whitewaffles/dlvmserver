@@ -7,6 +7,45 @@
 		
 
 		<style>
+			#drawingCanvasContainer {
+            position: relative;
+            width: 800px;
+            margin: 0 auto;
+			}
+			#drawingCanvas {
+				border: 1px solid #000;
+				display: block;
+				margin: 0 auto;
+			}
+			.color-button {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+			#erase-button {
+				display: inline-block;
+				cursor: pointer;
+			}
+			#buttonContainer {
+				position: absolute;
+				top: 0;
+				right: 0;
+				margin-top: 10px;
+				margin-right: 10px;
+			}
+
+
+
+
+
+
+
+
+
+
+
 			.button-group {
 				margin-left: 220px;
 				margin-top: 17px;
@@ -132,7 +171,62 @@
 
 		
 
-		
+		<div id="drawingCanvasContainer">
+			<div id="buttonContainer">
+				<button class="color-button" style="background-color: black;" onclick="setColor('black')"></button>
+				<button class="color-button" style="background-color: red;" onclick="setColor('red')"></button>
+				<button class="color-button" style="background-color: green;" onclick="setColor('green')"></button>
+				<button class="color-button" style="background-color: blue;" onclick="setColor('blue')"></button>
+				<button class="color-button" style="background-color: orange;" onclick="setColor('orange')"></button>
+				<button class="color-button" style="background-color: yellow;" onclick="setColor('yellow')"></button>
+				<button class="color-button" style="background-color: purple;" onclick="setColor('purple')"></button>
+				<button id="erase-button" onclick="setEraser()">지우개</button>
+			</div>
+			<canvas id="drawingCanvas" width="800" height="600"></canvas>
+		</div>
+		<script>
+			const canvas = document.getElementById('drawingCanvas');
+			const context = canvas.getContext('2d');
+			let isDrawing = false;
+			let currentColor = 'black';
+	
+			function draw(e) {
+				if (!isDrawing) return;
+	
+				const x = e.offsetX;
+				const y = e.offsetY;
+	
+				context.lineTo(x, y);
+				context.strokeStyle = currentColor;
+				context.lineWidth = currentColor === 'white' ? 5 * 5 : 5;
+				context.stroke();
+			}
+	
+			function setColor(color) {
+				currentColor = color;
+			}
+	
+			function setEraser() {
+				currentColor = 'white'; // 지우개는 흰색으로 설정
+			}
+	
+			canvas.addEventListener('mousedown', (e) => {
+				isDrawing = true;
+				context.beginPath();
+				context.moveTo(e.offsetX, e.offsetY);
+				canvas.addEventListener('mousemove', draw);
+			});
+	
+			canvas.addEventListener('mouseup', () => {
+				isDrawing = false;
+				canvas.removeEventListener('mousemove', draw);
+			});
+	
+			canvas.addEventListener('mouseout', () => {
+				isDrawing = false;
+				canvas.removeEventListener('mousemove', draw);
+			});
+		</script>
 	
 
 	</body>
