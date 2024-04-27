@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="utf-8">
+		<title>공지</title>
+		
+
+		<style>
+			.button-group {
+				margin-left: 220px;
+				margin-top: 17px;
+				user-select: none;
+			}
+			.button {
+				background-color: paleturquoise;
+				border: none;
+				padding: 12px 20px;
+				display: inline-block; /* 버튼을 같은 라인에 나란히 표시 */
+				margin-right: -6px; /* 브라우저 간 차이를 고려하여 겹침을 조정 */
+				font-size: 15px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			.button:hover {
+            background-color: hsl(180, 65%, 71%); /* 호버 시 배경색을 짙은 푸른색으로 변경 */ 
+			}
+
+
+
+
+			.dropbtn {
+				background-color: #4CAF50;
+				color: white;
+				padding: 16px;
+				font-size: 16px;
+				border: none;
+				cursor: pointer;
+				}
+
+
+			.dropdown {
+				display: inline-block;
+				}
+
+			.dropdown-content {
+				display: none;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+				}
+
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				}
+
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+				}
+
+			.dropdown:hover .dropbtn {
+				background-color: #3e8e41;
+				}
+			
+
+		</style>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const buttons = document.querySelectorAll('.button');
+				buttons.forEach(button => {
+					button.addEventListener('dragstart', function(event) {
+						event.preventDefault(); // 드래그 이벤트 방지
+					});
+				});
+			});
+			
+		</script>
+
+
+		<script src="https://kit.fontawesome.com/e212571460.js" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="server.jpg" />
+		<link rel="shortcut icon" href="server.jpg" />
+	</head>
+	<body>
+		<button 
+		style="background-color: rgba(0, 0, 0, 0); border:none; margin-left: 220px; margin-top: 15px; cursor: pointer;"
+		type="button">
+			<a href="https://discord.gg/5jkGF2pmmx">
+				<img src="https://ifh.cc/g/bcRR89.png"/>
+			</a>
+		</button>
+
+		<input style="border: 2px solid rgb(44, 44, 44); border-radius: 4px; margin-left: 500px; padding: 6px 7px 3px 7px; color: black;" type="text" placeholder="통합 검색"><button type="button" style="background-color: rgb(255, 255, 255); border: 2px solid rgb(44, 44, 44); border-radius: 4px; margin-left: -10px; padding: 6px 7px 3px 7px; color: black; cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+
+		<div class="button-group" style="background-color: paleturquoise; width: 840px;">
+			<!-- 공지버튼 -->
+			<a href="Announcement.html"><button class="button" type="button" style="background-color: rgb(97, 214, 214);">
+				공지
+			</button></a>
+	
+			<!-- 코드 버튼 -->
+			<button class="button" type="button">
+				코드
+			</button>
+
+			<!-- 커뮤니티 버튼 -->
+			<button class="button" type="button">
+				커뮤니티
+			</button>
+
+			<!-- 이벤트 버튼 -->
+			<button class="button" type="button">
+				이벤트
+			</button>
+			<!-- 이벤트 버튼 -->
+			<button class="button" type="button">
+				자주 묻는 질문
+			</button>
+
+			<button style="cursor: pointer; border-radius: 3px; margin-left: 220px; font-size: 13px; color: rgb(0, 0, 0); padding: 2px 2px 2px 2px; background-color: rgba(0, 0, 0, 0); border: 1px solid rgb(67, 67, 67);">로그인</button>
+			<button style="cursor: pointer; margin-left: 3px; font-size: 13px; color: rgb(140, 140, 140); background-color: rgba(0, 0, 0, 0); border: none;">회원가입</button>
+		</div>
+
+
+		
+
+		
+	
+
+	</body>
+</html>
