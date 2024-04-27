@@ -200,31 +200,22 @@
 			const canvas = document.getElementById('drawingCanvas');
 			const context = canvas.getContext('2d');
 			let isDrawing = false;
+			let currentColor = 'black';
 			let eraserSize = 5;
 			let brushSize = 5;
-
-			// WebSocket 연결
-			const socket = new WebSocket('ws://localhost:3000');
-
-			// 서버로부터 그림 정보를 받아와 화면에 그리는 함수
-			socket.addEventListener('message', function(event) {
-				const data = JSON.parse(event.data);
-				drawOnCanvas(data.x, data.y, data.prevX, data.prevY, data.color, data.eraserSize);
-			});
-
-			// 클라이언트가 그림을 그릴 때 서버로 정보를 전송하는 함수
-			function draw(x, y, prevX, prevY, color, eraserSize) {
-				const data = { x, y, prevX, prevY, color, eraserSize };
-				socket.send(JSON.stringify(data));
-			}
-
-			function drawOnCanvas(x, y, prevX, prevY, color, eraserSize) {
-				context.beginPath();
-				context.moveTo(prevX, prevY);
+		
+			function draw(e) {
+				if (!isDrawing) return;
+		
+				const rect = canvas.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+		
 				context.lineTo(x, y);
-				context.strokeStyle = color;
-				context.lineWidth = color === 'white' ? eraserSize * 5 : brushSize;
+				context.strokeStyle = currentColor;
+				context.lineWidth = currentColor === 'white' ? eraserSize * 5 : brushSize;
 				context.stroke();
+				
 			}
 		
 			function setColor(color) {
