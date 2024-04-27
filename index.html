@@ -215,6 +215,7 @@
 				context.strokeStyle = currentColor;
 				context.lineWidth = currentColor === 'white' ? eraserSize * 5 : brushSize;
 				context.stroke();
+				socket.emit('drawing', { x, y, color: currentColor, eraserSize, brushSize });
 			}
 		
 			function setColor(color) {
@@ -251,6 +252,8 @@
 				isDrawing = false;
 				canvas.removeEventListener('mousemove', draw);
 			});
+
+			
 		</script>
 
 
