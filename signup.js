@@ -99,5 +99,7 @@ document.getElementById("passwordField").addEventListener("input", function() {
         messageElement.textContent = "올바른 비밀번호입니다.";
         messageElement.className = "success-message";
     }
+
 });
+
 
