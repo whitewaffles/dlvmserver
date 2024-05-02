@@ -76,84 +76,82 @@
 			.error-message {
 				color: red;
 				display: block;
-				margin-top: -335px;
+				margin-top: -315px;
 				position: absolute;
 				font-weight: bolder;
-				margin-left: 560px;
+				margin-left: 420px;
 				font-size: 12px;
 			}
 			.success-message {
 				color: green;
 				display: block;
-				margin-top: -335px;
+				margin-top: -315px;
 				position: absolute;
 				font-weight: bolder;
-				margin-left: 560px;
+				margin-left: 420px;
 				font-size: 12px;
 			}
 			.error-name {
 				color: red;
 				display: block;
-				margin-top: -410px;
+				margin-top: -390px;
 				position: absolute;
 				font-weight: bolder;
-				margin-left: 560px;
+				margin-left: 420px;
 				font-size: 12px;
 			}
 			.success-name {
 				color: green;
 				display: block;
-				margin-top: -410px;
+				margin-top: -390px;
 				position: absolute;
 				font-weight: bolder;
-				margin-left: 560px;
+				margin-left: 420px;
 				font-size: 12px;
 			}
 			.error-name-null {
-				color: rgb(129, 129, 129);
+				color: rgb(116, 116, 116);
 				display: block;
-				margin-top: -410px;
+				margin-top: -390px;
 				position: absolute;
 				font-weight: bolder;
-				margin-left: 560px;
+				margin-left: 420px;
 				font-size: 12px;
 			}
 			.error-message-null {
-				color: rgb(129, 129, 129);
+				color: rgb(116, 116, 116);
 				display: block;
-				margin-top: -335px;
+				margin-top: -315px;
 				position: absolute;
 				font-weight: bolder;
-				margin-left: 560px;
+				margin-left: 420px;
 				font-size: 12px;
 			}
 			#emailInput {
 				position: absolute;
-				margin-left: 560px;
-				margin-top: -285px;
 			}
 			#authButton {
 				position: absolute;
 				margin-left: 560px;
-				margin-top: -260px;
+
 				pointer-events: none; /* 초기에는 버튼 비활성화 */
-				opacity: 0.5; /* 초기에는 투명도를 줘서 비활성화된 효과를 줌 */
+				opacity: 0.3; /* 초기에는 투명도를 줘서 비활성화된 효과를 줌 */
 			}
 			#authInput {
 				display: none; /* 초기에는 숨김 상태로 설정 */
 				position: absolute;
-				margin-left: 560px;
-				margin-top: -260px;
 				width: 60px;
 			}
 			#authInputbutton {
 				display: none; /* 초기에는 숨김 상태로 설정 */
 				position: absolute;
-				margin-left: 630px;
-				margin-top: -260px;
 				font-size: 11px;
 				font-weight: bold;
 			}
+			.passwordinput::placeholder {
+            color: rgb(62, 62, 62);
+        	}
+
 		</style>
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
@@ -218,17 +216,14 @@
         <div>
             <p style="background-color: rgb(240, 240, 240);  border-radius: 35px; padding: 27px 2px 490px 2px; text-align: center; font-size: 15px; font-weight: bold; width: 836px; margin-left: 220px;">회원가입</p>
 			<img src="https://ifh.cc/g/LCOL7j.jpg" style=" position: absolute; width: 770px; height: 440px; border-radius: 28px; background-color: rgb(249, 249, 249); margin-top: -490px; margin-left: 255px">
-			<button class="buttonn" style="border-radius: 6px; position: absolute; margin-top: -190px; margin-left: 590px; padding: 10px 20px 10px 20px;">회원가입</button> 
-			<p style="position: absolute; margin-left: 560px; margin-top: -460px; font-weight: bold;">닉네임</p>
-			<input style="position: absolute; margin-left: 560px; margin-top: -435px;" placeholder="name" maxlength="8" id="inputField">
+			<button class="buttonn" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -140px; width: 465px; outline: none; cursor: pointer; font-weight: bold;">회원가입</button> 
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -435px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" class="passwordinput" placeholder="name" maxlength="8" id="inputField">
 			<div id="errorName" class="error-name"></div>
-			<p style="position: absolute; margin-left: 560px; margin-top: -385px; font-weight: bold;">비밀번호</p>
-			<input style="position: absolute; margin-left: 560px; margin-top: -360px;" placeholder="password" id="passwordField" maxlength="20">
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -360px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" placeholder="password" class="passwordinput" id="passwordField" maxlength="20">
 			<div id="message" class="error-message"></div>
-			<p style="position: absolute; margin-left: 560px; margin-top: -310px; font-weight: bold;">이메일</p>
-			<input id="emailInput" placeholder="E-mail" oninput="checkEmail()">
-			<button id="authButton" onclick="getEmail()">인증코드받기</button>
-			<input id="authInput" placeholder="인증코드"><button id="authInputbutton">인증</button>
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -285px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="emailInput" placeholder="E-mail" oninput="checkEmail()">
+			<button style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -240px; width: 465px; text-indent: 10px; outline: none; cursor: pointer; font-weight: bold;" spellcheck="false" id="authButton" onclick="getEmail()">인증코드받기</button>
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -240px; width: 395px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="authInput" placeholder="인증코드"><button style="font-weight: bold; border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 810px; margin-top: -240px; width: 70px; outline: none; cursor: pointer;" id="authInputbutton">인증</button>
 			
 						
 		</div>
