@@ -100,7 +100,4 @@ document.getElementById("passwordField").addEventListener("input", function() {
         messageElement.className = "success-message";
     }
 });
-const Database = require("better-sqlite3");
-const db = new Database("user.db");
-db.pragma("journal_mode = WAL");
-db.exec("CREATE TABLE user (id INTEGER PRIMARY KEY, name TEXT, password TEXT)");
+
