@@ -103,3 +103,41 @@ document.getElementById("passwordField").addEventListener("input", function() {
 });
 
 
+document.getElementById("togglePassword").addEventListener("click", function () {
+    const passwordInput = document.getElementById("passwordField");
+    const toggleIcon = this.querySelector('i');
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.classList.remove("fa-solid", "fa-eye-slash");
+        toggleIcon.classList.add("fa-solid", "fa-eye");
+    } else {
+        passwordInput.type = "password";
+        toggleIcon.classList.remove("fa-solid", "fa-eye");
+        toggleIcon.classList.add("fa-solid", "fa-eye-slash");
+    }
+});
+
+
+
+
+
+
+
+
+document.getElementById("passwordd").addEventListener("input", function() {
+    var passwordValue = this.value;
+    var passwordOriginal = document.getElementById("passwordField").value;
+    var messageElement = document.getElementById("passworderror");
+
+    if (passwordValue !== passwordOriginal) {
+        messageElement.textContent = "비밀번호와 일치하지 않습니다.";
+        messageElement.className = "passworderroo";
+    } else {
+        messageElement.textContent = "비밀번호와 일치합니다.";
+        messageElement.className = "passworderro";
+    }
+});
+
+
+
