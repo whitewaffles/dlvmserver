@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<title>회원가입</title>
 		
-
+		<script src="https://kit.fontawesome.com/e212571460.js" crossorigin="anonymous"></script>
 		<style>
 			.button-group {
 				margin-left: 220px;
@@ -76,7 +76,7 @@
 			.error-message {
 				color: red;
 				display: block;
-				margin-top: -315px;
+				margin-top: -385px;
 				position: absolute;
 				font-weight: bolder;
 				margin-left: 420px;
@@ -85,7 +85,7 @@
 			.success-message {
 				color: green;
 				display: block;
-				margin-top: -315px;
+				margin-top: -385px;
 				position: absolute;
 				font-weight: bolder;
 				margin-left: 420px;
@@ -94,7 +94,7 @@
 			.error-name {
 				color: red;
 				display: block;
-				margin-top: -390px;
+				margin-top: -460px;
 				position: absolute;
 				font-weight: bolder;
 				margin-left: 420px;
@@ -103,7 +103,25 @@
 			.success-name {
 				color: green;
 				display: block;
-				margin-top: -390px;
+				margin-top: -460px;
+				position: absolute;
+				font-weight: bolder;
+				margin-left: 420px;
+				font-size: 12px;
+			}
+			.passworderroo {
+				color: red;
+				display: block;
+				margin-top: -310px;
+				position: absolute;
+				font-weight: bolder;
+				margin-left: 420px;
+				font-size: 12px;
+			}
+			.passworderro {
+				color: green;
+				display: block;
+				margin-top: -310px;
 				position: absolute;
 				font-weight: bolder;
 				margin-left: 420px;
@@ -112,7 +130,7 @@
 			.error-name-null {
 				color: rgb(116, 116, 116);
 				display: block;
-				margin-top: -390px;
+				margin-top: -460px;
 				position: absolute;
 				font-weight: bolder;
 				margin-left: 420px;
@@ -121,7 +139,7 @@
 			.error-message-null {
 				color: rgb(116, 116, 116);
 				display: block;
-				margin-top: -315px;
+				margin-top: -385px;
 				position: absolute;
 				font-weight: bolder;
 				margin-left: 420px;
@@ -151,7 +169,7 @@
 			.passwordinput::placeholder {
             color: rgb(62, 62, 62);
         	}
-
+			
 		</style>
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
@@ -166,7 +184,7 @@
 		</script>
 
 		
-		<script src="https://kit.fontawesome.com/e212571460.js" crossorigin="anonymous"></script>
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="server.jpg" />
 		<link rel="shortcut icon" href="server.jpg" />
@@ -212,18 +230,30 @@
 			<button style="cursor: pointer; border-radius: 3px; margin-left: 220px; font-size: 13px; color: rgb(0, 0, 0); padding: 2px 2px 2px 2px; background-color: rgba(0, 0, 0, 0); border: 1px solid rgb(67, 67, 67);">로그인</button>
 			<a href="signup.html"><button style="cursor: pointer; margin-left: 3px; font-size: 13px; color: rgb(140, 140, 140); background-color: rgba(0, 0, 0, 0); border: none;">회원가입</button></a>
 		</div>
-
+`
         <div>
-            <p style="background-color: rgb(240, 240, 240);  border-radius: 35px; padding: 27px 2px 490px 2px; text-align: center; font-size: 15px; font-weight: bold; width: 836px; margin-left: 220px;">회원가입</p>
-			<img src="https://ifh.cc/g/LCOL7j.jpg" style=" position: absolute; width: 770px; height: 440px; border-radius: 28px; background-color: rgb(249, 249, 249); margin-top: -490px; margin-left: 255px">
+            <p style="background-color: rgb(240, 240, 240);  border-radius: 35px; padding: 27px 2px 560px 2px; text-align: center; font-size: 15px; font-weight: bold; width: 836px; margin-left: 220px;">회원가입</p>
+			<img src="https://ifh.cc/g/LCOL7j.jpg" style=" position: absolute; width: 770px; height: 510px; border-radius: 28px; background-color: rgb(249, 249, 249); margin-top: -560px; margin-left: 255px">
 			<button class="buttonn" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -140px; width: 465px; outline: none; cursor: pointer; font-weight: bold;">회원가입</button> 
-			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -435px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" class="passwordinput" placeholder="name" maxlength="8" id="inputField">
+			
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -505px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" placeholder="이름" maxlength="8" id="inputField">
 			<div id="errorName" class="error-name"></div>
-			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -360px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" placeholder="password" class="passwordinput" id="passwordField" maxlength="20">
+
+			
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -430px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" placeholder="비밀번호" class="passwordinput" id="passwordField" maxlength="20" type="password">
 			<div id="message" class="error-message"></div>
-			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -285px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="emailInput" placeholder="E-mail" oninput="checkEmail()">
-			<button style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -240px; width: 465px; text-indent: 10px; outline: none; cursor: pointer; font-weight: bold;" spellcheck="false" id="authButton" onclick="getEmail()">인증코드받기</button>
-			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -240px; width: 395px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="authInput" placeholder="인증코드"><button style="font-weight: bold; border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 810px; margin-top: -240px; width: 70px; outline: none; cursor: pointer;" id="authInputbutton">인증</button>
+			<button id="togglePassword" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color: rgba(255, 255, 255, 0); position: absolute; margin-left: 812px; margin-top: -428px; width: 50px; text-indent: 10px; outline: none;">
+				<i class="fa-solid fa-eye-slash"></i> <!-- 초기 아이콘 fa-eye로 설정 -->
+			</button>
+			
+			
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -355px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" placeholder="비밀번호 확인" class="passwordinput" id="passwordd" maxlength="20">
+			<div id="passworderror" class="passworderro"></div>
+			
+			
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -280px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="emailInput" placeholder="E-mail" oninput="checkEmail()">
+			<button style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -235px; width: 465px; text-indent: 10px; outline: none; cursor: pointer; font-weight: bold;" spellcheck="false" id="authButton" onclick="getEmail()">인증코드받기</button>
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -235px; width: 395px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="authInput" placeholder="인증코드"><button style="font-weight: bold; border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 810px; margin-top: -235px; width: 70px; outline: none; cursor: pointer;" id="authInputbutton">인증</button>
 			
 						
 		</div>
