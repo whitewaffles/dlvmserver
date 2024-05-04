@@ -6,171 +6,7 @@
 		<title>회원가입</title>
 		
 		<script src="https://kit.fontawesome.com/e212571460.js" crossorigin="anonymous"></script>
-		<style>
-			.button-group {
-				margin-left: 220px;
-				margin-top: 17px;
-				user-select: none;
-			}
-			.button {
-				background-color: paleturquoise;
-				border: none;
-				padding: 12px 20px;
-				display: inline-block; /* 버튼을 같은 라인에 나란히 표시 */
-				margin-right: -6px; /* 브라우저 간 차이를 고려하여 겹침을 조정 */
-				font-size: 15px;
-				font-weight: bold;
-				cursor: pointer;
-			}
-			.button:hover {
-            background-color: hsl(180, 65%, 71%); /* 호버 시 배경색을 짙은 푸른색으로 변경 */ 
-			}
-
-			.buttonn{
-				background-color:lightblue;
-				cursor: pointer;
-				border: 2px solid rgb(152, 152, 152);
-			}
-			.buttonn:hover {
-			background-color: rgb(138, 208, 232);
-			}
-
-			.dropbtn {
-				background-color: #4CAF50;
-				color: white;
-				padding: 16px;
-				font-size: 16px;
-				border: none;
-				cursor: pointer;
-				}
-
-
-			.dropdown {
-				display: inline-block;
-				}
-
-			.dropdown-content {
-				display: none;
-				background-color: #f9f9f9;
-				min-width: 160px;
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-				z-index: 1;
-				}
-
-			.dropdown-content a {
-				color: black;
-				padding: 12px 16px;
-				text-decoration: none;
-				display: block;
-				}
-
-			.dropdown-content a:hover {background-color: #f1f1f1}
-
-			.dropdown:hover .dropdown-content {
-				display: block;
-				}
-
-			.dropdown:hover .dropbtn {
-				background-color: #3e8e41;
-				}
-			.error-message {
-				color: red;
-				display: block;
-				margin-top: -385px;
-				position: absolute;
-				font-weight: bolder;
-				margin-left: 420px;
-				font-size: 12px;
-			}
-			.success-message {
-				color: green;
-				display: block;
-				margin-top: -385px;
-				position: absolute;
-				font-weight: bolder;
-				margin-left: 420px;
-				font-size: 12px;
-			}
-			.error-name {
-				color: red;
-				display: block;
-				margin-top: -460px;
-				position: absolute;
-				font-weight: bolder;
-				margin-left: 420px;
-				font-size: 12px;
-			}
-			.success-name {
-				color: green;
-				display: block;
-				margin-top: -460px;
-				position: absolute;
-				font-weight: bolder;
-				margin-left: 420px;
-				font-size: 12px;
-			}
-			.passworderroo {
-				color: red;
-				display: block;
-				margin-top: -310px;
-				position: absolute;
-				font-weight: bolder;
-				margin-left: 420px;
-				font-size: 12px;
-			}
-			.passworderro {
-				color: green;
-				display: block;
-				margin-top: -310px;
-				position: absolute;
-				font-weight: bolder;
-				margin-left: 420px;
-				font-size: 12px;
-			}
-			.error-name-null {
-				color: rgb(116, 116, 116);
-				display: block;
-				margin-top: -460px;
-				position: absolute;
-				font-weight: bolder;
-				margin-left: 420px;
-				font-size: 12px;
-			}
-			.error-message-null {
-				color: rgb(116, 116, 116);
-				display: block;
-				margin-top: -385px;
-				position: absolute;
-				font-weight: bolder;
-				margin-left: 420px;
-				font-size: 12px;
-			}
-			#emailInput {
-				position: absolute;
-			}
-			#authButton {
-				position: absolute;
-				margin-left: 560px;
-
-				pointer-events: none; /* 초기에는 버튼 비활성화 */
-				opacity: 0.3; /* 초기에는 투명도를 줘서 비활성화된 효과를 줌 */
-			}
-			#authInput {
-				display: none; /* 초기에는 숨김 상태로 설정 */
-				position: absolute;
-				width: 60px;
-			}
-			#authInputbutton {
-				display: none; /* 초기에는 숨김 상태로 설정 */
-				position: absolute;
-				font-size: 11px;
-				font-weight: bold;
-			}
-			.passwordinput::placeholder {
-            color: rgb(62, 62, 62);
-        	}
-			
-		</style>
+		<link rel="stylesheet" href="signup.css">
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
 				const buttons = document.querySelectorAll('.button');
@@ -230,12 +66,22 @@
 			<button style="cursor: pointer; border-radius: 3px; margin-left: 220px; font-size: 13px; color: rgb(0, 0, 0); padding: 2px 2px 2px 2px; background-color: rgba(0, 0, 0, 0); border: 1px solid rgb(67, 67, 67);">로그인</button>
 			<a href="signup.html"><button style="cursor: pointer; margin-left: 3px; font-size: 13px; color: rgb(140, 140, 140); background-color: rgba(0, 0, 0, 0); border: none;">회원가입</button></a>
 		</div>
-`
+				
+
         <div>
             <p style="background-color: rgb(240, 240, 240);  border-radius: 35px; padding: 27px 2px 560px 2px; text-align: center; font-size: 15px; font-weight: bold; width: 836px; margin-left: 220px;">회원가입</p>
 			<img src="https://ifh.cc/g/LCOL7j.jpg" style=" position: absolute; width: 770px; height: 510px; border-radius: 28px; background-color: rgb(249, 249, 249); margin-top: -560px; margin-left: 255px">
-			<button class="buttonn" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -140px; width: 465px; outline: none; cursor: pointer; font-weight: bold;">회원가입</button> 
 			
+
+
+
+			<button class="buttonn type1">
+				<span class="btn-txt">회원가입</span>
+			</button>
+			
+			
+
+
 			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -505px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" placeholder="이름" maxlength="8" id="inputField">
 			<div id="errorName" class="error-name"></div>
 
@@ -257,6 +103,7 @@
 			
 						
 		</div>
+		
 		
         <script async src = 'signup.js'></script>
     </body>
