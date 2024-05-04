@@ -264,5 +264,8 @@ function sendData() {
         .catch(error => {
             console.error('Error sending data to server:', error);
         });
+        alert('회원가입이 완료되었습니다.');
+        window.location.href = "https://dlvm.netlify.app";
+        return;
     }
 }
