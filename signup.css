@@ -1,0 +1,214 @@
+.button-group {
+    margin-left: 220px;
+    margin-top: 17px;
+    user-select: none;
+}
+.button {
+    background-color: paleturquoise;
+    border: none;
+    padding: 12px 20px;
+    display: inline-block; /* 버튼을 같은 라인에 나란히 표시 */
+    margin-right: -6px; /* 브라우저 간 차이를 고려하여 겹침을 조정 */
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.button:hover {
+background-color: hsl(180, 65%, 71%); /* 호버 시 배경색을 짙은 푸른색으로 변경 */ 
+}
+
+.buttonn{
+    background-color:lightblue;
+    cursor: pointer;
+    border: 2px solid rgb(152, 152, 152);
+}
+.buttonn:hover {
+background-color: rgb(138, 208, 232);
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    }
+
+
+.dropdown {
+    display: inline-block;
+    }
+
+.dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    }
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+    }
+.error-message {
+    color: red;
+    display: block;
+    margin-top: -385px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.success-message {
+    color: green;
+    display: block;
+    margin-top: -385px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.error-name {
+    color: red;
+    display: block;
+    margin-top: -460px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.success-name {
+    color: green;
+    display: block;
+    margin-top: -460px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.passworderroo {
+    color: red;
+    display: block;
+    margin-top: -310px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.passworderro {
+    color: green;
+    display: block;
+    margin-top: -310px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.error-name-null {
+    color: rgb(116, 116, 116);
+    display: block;
+    margin-top: -460px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.error-message-null {
+    color: rgb(116, 116, 116);
+    display: block;
+    margin-top: -385px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+#emailInput {
+    position: absolute;
+}
+#authButton {
+    position: absolute;
+    margin-left: 560px;
+
+    pointer-events: none; /* 초기에는 버튼 비활성화 */
+    opacity: 0.3; /* 초기에는 투명도를 줘서 비활성화된 효과를 줌 */
+}
+#authInput {
+    display: none; /* 초기에는 숨김 상태로 설정 */
+    position: absolute;
+    width: 60px;
+}
+#authInputbutton {
+    display: none; /* 초기에는 숨김 상태로 설정 */
+    position: absolute;
+    font-size: 11px;
+    font-weight: bold;
+}
+.passwordinput::placeholder {
+color: rgb(62, 62, 62);
+}
+
+
+
+.buttonn {
+    height: 35px;
+    width: 465px;
+    position: absolute;
+    background-color:rgba(255, 255, 255, 0.445);
+    cursor: pointer;
+    border: 2px solid #252525;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #333;
+    transition: all 0.5s ease-in-out;
+    margin-left: 410px;
+    margin-top: -140px;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.btn-txt {
+    z-index: 1;
+    font-weight: 800;
+
+}
+
+.type1::after {
+    
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: #333;
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+}
+
+.buttonn:hover {
+    box-shadow: 1px 1px 200px #252525;
+    color: #fff;
+    border: none;
+    background-color: darkgray;
+}
+.type1:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+}
