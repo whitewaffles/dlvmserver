@@ -72,7 +72,6 @@ document.getElementById("passwordField").addEventListener("input", function() {
     var passwordValue = this.value;
     var messageElement = document.getElementById("message");
     var regex = /^[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, 특수문자
-    var regexx = /^[!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
     var regexxx = /^[a-zA-Z]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
     var regexxxx = /^[0-9]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
     var regexxxxx = /^[!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
@@ -141,3 +140,129 @@ document.getElementById("passwordd").addEventListener("input", function() {
 
 
 
+
+
+
+
+
+
+// db
+
+
+function sendData() {
+    console.log('sendData function called'); // 함수가 호출될 때 콘솔에 메시지 출력
+
+    const nickname = document.getElementById('inputField').value;
+    const password = document.getElementById('passwordField').value;
+    const email = document.getElementById('emailInput').value;
+
+
+    // 데이터를 객체로 만들어 JSON 형식으로 변환
+    const data = {
+        nickname: nickname,
+        password: password,
+        email: email
+    };
+
+
+
+
+    var namee = document.getElementById("inputField").value; // 이름
+    var passwordd = document.getElementById("passwordField").value; // 비번
+    var passworddd = document.getElementById("passwordd").value; // 비번확인
+    var emaill = document.getElementById("emailInput").value;  // 이메일
+
+
+    var namelist = /^[a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ-_.]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var namelist2 = /^[a-zA-Z0-9가-힣!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var namelist3 = /^[!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+
+
+    var passwordlist = /^[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, 특수문자
+    var passwordlist2 = /^[!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var passwordlist3 = /^[a-zA-Z]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var passwordlist4 = /^[0-9]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+
+
+
+
+
+
+
+
+    if (namee === '') {
+        alert('닉네임을 적어주세요.');
+        return;
+    }else if (namelist3.test(namee) && namee !== '') {
+        alert('닉네임을 다시 확인해주세요.');
+        return;
+    }else if (!namelist2.test(namee)) {
+        alert('닉네임을 다시 확인해주세요.');
+        return;
+    }else if (!namelist.test(namee)) {
+        alert('닉네임을 다시 확인해주세요.');
+        return;
+    } else if (namee.length > 8) {
+        alert('닉네임을 다시 확인해주세요.');
+        return;
+
+
+
+
+    } else if (passwordd === '') {
+        alert('비밀번호를 다시 확인해주세요.');
+        return;
+    }else if (passwordlist3.test(passwordd) && passwordd !== '') {
+        alert('비밀번호를 다시 확인해주세요.');
+        return;
+    }else if (passwordlist4.test(passwordd) && passwordd !== '') {
+        alert('비밀번호를 다시 확인해주세요.');
+        return;
+    }else if (passwordlist2.test(passwordd) && passwordd !== '') {
+        alert('비밀번호를 다시 확인해주세요.');
+        return;
+    } else if (!passwordlist.test(passwordd)) {
+        alert('비밀번호를 다시 확인해주세요.');
+        return;
+    } else if (passwordd.length < 8 || passwordd.length > 20) {
+        alert('비밀번호를 다시 확인해주세요.');
+        return;
+
+
+
+
+    } else if (passwordd !== passworddd) {
+        alert('비밀번호 확인란을 다시 확인해주세요.');
+        return;
+        
+
+
+    }else if (emaill === '') {
+        alert('이메일을 작성해주세요.');
+        return;
+    }else {
+        // 모든 조건을 통과했을 때 실행되는 코드
+        fetch('https://carnelian-abalone-periwinkle.glitch.me/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            
+        })
+        
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Server response:', data);
+            // 여기서 필요한 추가 작업을 수행할 수 있습니다.
+        })
+        .catch(error => {
+            console.error('Error sending data to server:', error);
+        });
+    }
+}
