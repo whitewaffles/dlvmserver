@@ -72,6 +72,7 @@ function generateAndStoreVerificationCode() {
         .catch(error => {
             console.error('Error sending data to server:', error);
         });
+    alert('인증코드가 발급되었습니다.\n이메일을 확인해주세요.');
 }
 
 
