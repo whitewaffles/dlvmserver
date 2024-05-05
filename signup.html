@@ -18,7 +18,9 @@
 			});
 			
 		</script>
-
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script type="text/javascript" src = 'useremail.js'></script>
+		<script type="text/javascript" src = 'useremail2.js'></script>
 		
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,7 +84,7 @@
 			
 
 
-			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -505px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" placeholder="이름" maxlength="8" id="inputField">
+			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -505px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" name="user_name" placeholder="이름" maxlength="8" id="inputField">
 			<div id="errorName" class="error-name"></div>
 
 			
@@ -97,10 +99,18 @@
 			<div id="passworderror" class="passworderro"></div>
 			
 			
-			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -280px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="emailInput" placeholder="E-mail" oninput="checkEmail()">
-			<button style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -235px; width: 465px; text-indent: 10px; outline: none; cursor: pointer; font-weight: bold;" spellcheck="false" id="authButton" onclick="getEmail()">인증코드받기</button>
+			<form id="contact-form">
+				<!-- To simplify the tutorial, the value is static. -->
+				<input type="hidden" name="contact_number" value="697483">
+				
+
+				<input type="email" name="user_email" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -280px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="emailInput" placeholder="E-mail">
+				
+				<button type="submit" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -235px; width: 465px; text-indent: 10px; outline: none; cursor: pointer; font-weight: bold;" spellcheck="false" id="authButton">인증코드발급</button>
+			</form>
+
 			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -235px; width: 395px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="authInput" placeholder="인증코드"><button style="font-weight: bold; border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 810px; margin-top: -235px; width: 70px; outline: none; cursor: pointer;" id="authInputbutton">인증</button>
-			
+
 						
 		</div>
 		
