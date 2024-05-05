@@ -1,5 +1,7 @@
-function getEmail() {
-    var authButton = document.getElementById("authButton");
+
+
+document.getElementById("authButton").addEventListener("click", function() {
+    var authButton = this.value;
     var authInput = document.getElementById("authInput");
     var authInputt = document.getElementById("authInputbutton");
     
@@ -10,7 +12,7 @@ function getEmail() {
     authButton.disabled = true;
     authButton.style.pointerEvents = "none";
     authButton.style.opacity = "0.5";
-}
+})
 
 function showInput() {
     var authButton = document.getElementById("authButton");
@@ -22,8 +24,12 @@ function showInput() {
     authInputt.style.display = "block";
 }
 
-function checkEmail() {
-    var emailInput = document.getElementById("emailInput");
+
+
+
+document.getElementById("emailInput").addEventListener("input", function() {
+
+    var emailInput = this.value;
     var authButton = document.getElementById("authButton");
     var authInputt = document.getElementById("authInputbutton");
 
@@ -35,8 +41,14 @@ function checkEmail() {
         authButton.disabled = false; // 버튼 활성화
         authButton.style.pointerEvents = "auto";
         authButton.style.opacity = "1";
+        
+
+
+
     }
-}
+
+
+})
 
 
 document.getElementById("inputField").addEventListener("input", function() {
