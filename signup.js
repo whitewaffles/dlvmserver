@@ -4,8 +4,13 @@ document.getElementById("authButton").addEventListener("click", function() {
     var authButton = this.value;
     var authInput = document.getElementById("authInput");
     var authInputt = document.getElementById("authInputbutton");
+
+
+
+
     
-    var verificationCode = Math.floor(100000 + Math.random() * 900000); // 100000부터 999999 사이의 난수 생성
+    
+   
 
     showInput(); // 인증코드 입력 필드 표시
 
@@ -14,6 +19,10 @@ document.getElementById("authButton").addEventListener("click", function() {
     authButton.style.pointerEvents = "none";
     authButton.style.opacity = "0.5";
 })
+
+
+
+
 
 function showInput() {
     var authButton = document.getElementById("authButton");
@@ -25,10 +34,89 @@ function showInput() {
     authInputt.style.display = "block";
 }
 
+
+
+
+// 인증코드 발급버튼
 function generateAndStoreVerificationCode() {
-    var verificationCode = generateVerificationCode(); // 랜덤 숫자 생성
+    const verificationCode = generateVerificationCode(); // 랜덤 숫자 생성
     document.getElementById("verificationCodeInput").value = verificationCode; // input 요소에 랜덤 숫자 할당
+    const emails = document.getElementById("emailInput").value;
+
+
+    const data = {
+        email: emails,
+        randomtntwk: verificationCode
+    };
+
+
+    fetch('https://silk-functional-jelly.glitch.me/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            
+        })
+        
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Server response:', data);
+            // 여기서 필요한 추가 작업을 수행할 수 있습니다.
+        })
+        .catch(error => {
+            console.error('Error sending data to server:', error);
+        });
 }
+
+
+
+// 인증 버튼 클릭 이벤트 처리
+document.getElementById('authInputbutton').addEventListener('click', function() {
+    const email = document.getElementById('emailInput').value;
+    const verificationCode = document.getElementById('authInput').value;
+
+    const data = {
+        email: email,
+        verificationCode: verificationCode
+    };
+
+    // 서버로 데이터 전송하여 인증 확인 요청
+    fetch('https://silk-functional-jelly.glitch.me/authenticate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.authenticated) {
+            // 인증 성공
+            alert('인증이 완료되었습니다.');
+        } else {
+            // 인증 실패
+            alert('인증코드가 일치하지 않습니다.');
+        }
+    })
+    .catch(error => {
+        console.error('Error sending data to server:', error);
+    });
+});
+
+
+
+
 
 function generateVerificationCode() {
     return Math.floor(100000 + Math.random() * 900000); // 100000부터 999999 사이의 난수 생성
