@@ -5,6 +5,7 @@ document.getElementById("authButton").addEventListener("click", function() {
     var authInput = document.getElementById("authInput");
     var authInputt = document.getElementById("authInputbutton");
     
+    var verificationCode = Math.floor(100000 + Math.random() * 900000); // 100000부터 999999 사이의 난수 생성
 
     showInput(); // 인증코드 입력 필드 표시
 
@@ -24,7 +25,14 @@ function showInput() {
     authInputt.style.display = "block";
 }
 
+function generateAndStoreVerificationCode() {
+    var verificationCode = generateVerificationCode(); // 랜덤 숫자 생성
+    document.getElementById("verificationCodeInput").value = verificationCode; // input 요소에 랜덤 숫자 할당
+}
 
+function generateVerificationCode() {
+    return Math.floor(100000 + Math.random() * 900000); // 100000부터 999999 사이의 난수 생성
+}
 
 
 document.getElementById("emailInput").addEventListener("input", function() {
@@ -281,3 +289,10 @@ function sendData() {
         return;
     }
 }
+
+
+
+
+
+
+
