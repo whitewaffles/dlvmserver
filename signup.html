@@ -103,10 +103,12 @@
 				<!-- To simplify the tutorial, the value is static. -->
 				<input type="hidden" name="contact_number" value="697483">
 				
-
 				<input type="email" name="user_email" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -280px; width: 465px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="emailInput" placeholder="E-mail">
+				<input type="hidden" id="verificationCodeInput" name="verificationCode">
+				<input style="border: none; position: absolute; background-color: rgba(240, 248, 255, 0); width: 0.001px; height: 0.001px;" id="randomNumber" name="randomtntwk">
+				<button onclick="generateAndStoreVerificationCode()" type="submit" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -235px; width: 465px; text-indent: 10px; outline: none; cursor: pointer; font-weight: bold;" spellcheck="false" id="authButton">인증코드발급</button>
 				
-				<button type="submit" style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -235px; width: 465px; text-indent: 10px; outline: none; cursor: pointer; font-weight: bold;" spellcheck="false" id="authButton">인증코드발급</button>
+			
 			</form>
 
 			<input style="border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 410px; margin-top: -235px; width: 395px; text-indent: 10px; outline: none;" spellcheck="false" class="passwordinput" id="authInput" placeholder="인증코드"><button style="font-weight: bold; border-radius: 24px; font-size: 20px; border: none; height: 35px; background-color:rgba(255, 255, 255, 0.445); position: absolute; margin-left: 810px; margin-top: -235px; width: 70px; outline: none; cursor: pointer;" id="authInputbutton">인증</button>
