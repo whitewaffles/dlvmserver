@@ -67,7 +67,7 @@ background-color: rgb(138, 208, 232);
 .error-message {
     color: red;
     display: block;
-    margin-top: -385px;
+    margin-top: -405px;
     position: absolute;
     font-weight: bolder;
     margin-left: 420px;
@@ -76,7 +76,7 @@ background-color: rgb(138, 208, 232);
 .success-message {
     color: green;
     display: block;
-    margin-top: -385px;
+    margin-top: -405px;
     position: absolute;
     font-weight: bolder;
     margin-left: 420px;
@@ -85,7 +85,7 @@ background-color: rgb(138, 208, 232);
 .error-name {
     color: red;
     display: block;
-    margin-top: -460px;
+    margin-top: -480px;
     position: absolute;
     font-weight: bolder;
     margin-left: 420px;
@@ -94,7 +94,7 @@ background-color: rgb(138, 208, 232);
 .success-name {
     color: green;
     display: block;
-    margin-top: -460px;
+    margin-top: -480px;
     position: absolute;
     font-weight: bolder;
     margin-left: 420px;
@@ -103,7 +103,7 @@ background-color: rgb(138, 208, 232);
 .passworderroo {
     color: red;
     display: block;
-    margin-top: -310px;
+    margin-top: -330px;
     position: absolute;
     font-weight: bolder;
     margin-left: 420px;
@@ -112,7 +112,7 @@ background-color: rgb(138, 208, 232);
 .passworderro {
     color: green;
     display: block;
-    margin-top: -310px;
+    margin-top: -330px;
     position: absolute;
     font-weight: bolder;
     margin-left: 420px;
@@ -121,16 +121,48 @@ background-color: rgb(138, 208, 232);
 .error-name-null {
     color: rgb(116, 116, 116);
     display: block;
-    margin-top: -460px;
+    margin-top: -480px;
     position: absolute;
     font-weight: bolder;
     margin-left: 420px;
     font-size: 12px;
 }
+
+
+.dkdleltorghl {
+    color: rgb(116, 116, 116);
+    display: block;
+    margin-top: -555px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.dkdleltor {
+    color: red;
+    display: block;
+    margin-top: -555px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+.dkdleltorch {
+    color: green;
+    display: block;
+    margin-top: -555px;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 420px;
+    font-size: 12px;
+}
+
+
+
 .error-message-null {
     color: rgb(116, 116, 116);
     display: block;
-    margin-top: -385px;
+    margin-top: -405px;
     position: absolute;
     font-weight: bolder;
     margin-left: 420px;
@@ -175,7 +207,7 @@ color: rgb(62, 62, 62);
     color: #333;
     transition: all 0.5s ease-in-out;
     margin-left: 410px;
-    margin-top: -140px;
+    margin-top: -160px;
     font-size: 20px;
     font-weight: bold;
     
