@@ -75,11 +75,40 @@ function generateAndStoreVerificationCode() {
     alert('인증코드가 발급되었습니다.\n이메일을 확인해주세요.');
 }
 
+// 닉네임 중복 확인 버튼 클릭 이벤트 처리
+document.querySelector('#dkdlelwndqhr').addEventListener('click', function() {
+    const userid = document.querySelector('#dkdlel').value;
 
+    // 서버로 닉네임 전송
+    fetch('https://carnelian-abalone-periwinkle.glitch.me/check-userid', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userid: userid })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // 서버로부터 받은 응답에 따라 알림창 표시
+        if (data.exists) {
+            alert('이미 존재하는 아이디입니다.');
+        } else {
+            alert('사용 가능한 아이디입니다.');
+        }
+    })
+    .catch(error => {
+        console.error('Error checking nickname:', error);
+    });
+});
 
 // 닉네임 중복 확인 버튼 클릭 이벤트 처리
 document.querySelector('#checkNicknameBtn').addEventListener('click', function() {
-    const nickname = document.querySelector('#inputField').value;
+    const username = document.querySelector('#inputField').value;
 
     // 서버로 닉네임 전송
     fetch('https://carnelian-abalone-periwinkle.glitch.me/check-nickname', {
@@ -87,7 +116,7 @@ document.querySelector('#checkNicknameBtn').addEventListener('click', function()
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ nickname: nickname })
+        body: JSON.stringify({ username: username })
     })
     .then(response => {
         if (!response.ok) {
@@ -179,6 +208,45 @@ document.getElementById("emailInput").addEventListener("input", function() {
 
 
 })
+
+
+
+document.getElementById("dkdlel").addEventListener("input", function() {
+    var inputValue = this.value;
+    var dkdlelerror = document.getElementById("dkdlelwnd");
+    var dkdlel1 = /^[a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ-_.]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var dkdlel2 = /^[a-zA-Z0-9!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var dkdlel3 = /^[!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var dkdkel4 = /^[0-9]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    if (inputValue === '') {
+        dkdlelerror.textContent = "아이디을 적어주세요!";
+        dkdlelerror.className = "dkdleltorghl";
+    }else if (dkdlel3.test(inputValue) && inputValue !== '') {
+        dkdlelerror.textContent = "특수문자로만은 사용이 불가능합니다!";
+        dkdlelerror.className = "dkdleltor";
+    }else if (dkdkel4.test(inputValue) && inputValue !== '') {
+        dkdlelerror.textContent = "숫자로만은 사용이 불가능합니다!";
+        dkdlelerror.className = "dkdleltor";
+    }else if (!dkdlel2.test(inputValue)) {
+        dkdlelerror.textContent = "한글은 사용이 불가합니다!";
+        dkdlelerror.className = "dkdleltor";
+    }else if (!dkdlel1.test(inputValue)) {
+        dkdlelerror.textContent = "특수문자는 -_.만 사용가능합니다!";
+        dkdlelerror.className = "dkdleltor";
+    } else if (inputValue.length > 20) {
+        this.value = inputValue.slice(0, 20); // 8글자까지만 유지
+        dkdlelerror.textContent = "20글자를 초과하였습니다!";
+        dkdlelerror.className = "dkdleltor";
+    } else {
+        dkdlelerror.textContent = "올바른 아이디입니다"; // 메시지 초기화
+        dkdlelerror.className = "dkdleltorch";
+    }
+});
+
+
+
+
+
 
 
 document.getElementById("inputField").addEventListener("input", function() {
@@ -296,22 +364,24 @@ function sendData() {
 
 
     const verificationCode = document.getElementById('authInput').value;    // 인증코드 적는 곳
-    const nickname = document.getElementById('inputField').value;       // 닉네임
+    const username = document.getElementById('inputField').value;       // 닉네임
     const password = document.getElementById('passwordField').value;    // 비밀번호
     const email = document.getElementById('emailInput').value;      // 이메일
+    const userid = document.getElementById('dkdlel').value;  // 아이디
 
 
 
     // 데이터를 객체로 만들어 JSON 형식으로 변환
     const data = {
-        nickname: nickname,
+        userid: userid,
+        username: username,
         password: password,
         email: email
     };
 
 
 
-
+    var dkdlel = document.getElementById("dkdlel").value; // 아이디
     var namee = document.getElementById("inputField").value; // 이름
     var passwordd = document.getElementById("passwordField").value; // 비번
     var passworddd = document.getElementById("passwordd").value; // 비번확인
@@ -329,13 +399,36 @@ function sendData() {
     var passwordlist4 = /^[0-9]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
 
 
+    var dkdlel1 = /^[a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ-_.]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var dkdlel2 = /^[a-zA-Z0-9!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var dkdlel3 = /^[!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
+    var dkdkel4 = /^[0-9]*$/; // 허용되는 패턴: 영문자, 숫자, -, _, .
 
 
 
+    if (dkdlel === '') {
+        alert('아이디를 적어주세요.');
+        return;
+    }else if (dkdlel3.test(dkdlel) && dkdlel !== '') {
+        alert('아이디를 다시 확인해주세요.');
+        return;
+    }else if (dkdkel4.test(dkdlel) && dkdlel !== '') {
+        alert('아이디를 다시 확인해주세요.');
+        return;
+    }else if (!dkdlel2.test(dkdlel)) {
+        alert('아이디를 다시 확인해주세요.');
+        return;
+    }else if (!dkdlel1.test(dkdlel)) {
+        alert('아이디를 다시 확인해주세요.');
+        return;
+    } else if (dkdlel.length > 20) {
+        alert('아이디를 다시 확인해주세요.');
+        return;
 
 
 
-    if (namee === '') {
+    
+    }else if (namee === '') {
         alert('닉네임을 적어주세요.');
         return;
     }else if (namelist3.test(namee) && namee !== '') {
@@ -387,12 +480,12 @@ function sendData() {
         return;
     
     }else {
-        fetch('https://carnelian-abalone-periwinkle.glitch.me/check-nickname', {
+        fetch('https://carnelian-abalone-periwinkle.glitch.me/check-userid', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nickname: nickname })
+            body: JSON.stringify({ userid: userid })
         })
         .then(response => {
             if (!response.ok) {
@@ -402,65 +495,84 @@ function sendData() {
         })
         .then(data => {
             if (data.exists) {
-                alert('이미 존재하는 닉네임입니다.');
+                alert('이미 존재하는 아이디입니다.');
                 return;
-            }else if (verificationCodes === '') {
-                alert('인증코드를 발급해주세요.');
-                return;
-            } else {
-                // 인증 확인
-                fetch('https://silk-functional-jelly.glitch.me/authenticate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email: email, verificationCode: verificationCode })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.authenticated) {
-                        // 회원가입 요청 보내기
-                        fetch('https://carnelian-abalone-periwinkle.glitch.me/register', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ nickname: nickname, email: email, password: password })
-                        })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log('Server response:', data);
-                            // 회원가입이 성공적으로 처리된 경우 알림 표시
-                            alert('회원가입이 완료되었습니다.');
-                            window.location.href = "https://dlvm.netlify.app";
-                            return;
-                        })
-                        .catch(error => {
-                            console.error('Error sending data to server:', error);
-                        });
-                    } else {
-                        alert('인증코드가 일치하지 않습니다.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error authenticating:', error);
-                });
-            }
-        })
+            }else fetch('https://carnelian-abalone-periwinkle.glitch.me/check-nickname', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.exists) {
+                    alert('이미 존재하는 닉네임입니다.');
+                    return;
+                }else if (verificationCodes === '') {
+                    alert('인증코드를 발급해주세요.');
+                    return;
+                } else {
+                    // 인증 확인
+                    fetch('https://silk-functional-jelly.glitch.me/authenticate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email: email, verificationCode: verificationCode })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.authenticated) {
+                            // 회원가입 요청 보내기
+                            fetch('https://carnelian-abalone-periwinkle.glitch.me/register', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ userid: userid, username: username, password: password, email: email })
+                            })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
+                                console.log('Server response:', data);
+                                // 회원가입이 성공적으로 처리된 경우 알림 표시
+                                alert('회원가입이 완료되었습니다.');
+                                window.location.href = "https://dlvm.netlify.app";
+                                return;
+                            })
+                            .catch(error => {
+                                console.error('Error sending data to server:', error);
+                            });
+                        } else {
+                            alert('인증코드가 일치하지 않습니다.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error authenticating:', error);
+                    });
+                }
+            })
         .catch(error => {
             console.error('Error checking nickname:', error);
         });
-    }
+    
+        }
+    )}
 }
 
 
