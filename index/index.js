@@ -26,3 +26,25 @@ container.addEventListener('mouseleave', function() {
     container.style.transform = `rotateX(0deg) rotateY(0deg)`; // 초기값으로 되돌림
     overlay.style.opacity = 0; // 마우스가 벗어났을 때 overlay 숨기기
 });
+
+
+
+// 버튼 위에 마우스를 가져다 대면 디스코드 코드 창을 보여줍니다
+function showDiscordCode() {
+    var discordCodeDiv = document.getElementById('discordCode');
+    discordCodeDiv.style.display = 'block';
+}
+
+// 버튼 또는 디스코드 코드 창에서 마우스가 떠나면 창을 숨깁니다
+function hideDiscordCode() {
+    var discordButton = document.querySelector('.eltmzhem');
+    var discordCodeDiv = document.getElementById('discordCode');
+    if (!isHover(discordButton) && !isHover(discordCodeDiv)) {
+        discordCodeDiv.style.display = 'none';
+    }
+}
+
+// 요소가 호버링되고 있는지 확인하는 도우미 기능
+function isHover(elem) {
+    return (elem.parentElement.querySelector(':hover') === elem);
+}
