@@ -36,3 +36,69 @@
     cursor: pointer;
     
 }
+
+.eltmzhem {
+    position: absolute;
+    background-color: rgba(0, 0, 255, 0);
+    margin-top: 0px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.eltmzhem:hover {
+    background-color: rgb(23, 89, 68); 
+}
+
+.eltmzhem_list {
+    height: 75px;
+    width: 119px;
+
+    background-color: rgb(39, 133, 103);
+    
+}
+
+
+.eltmzhem_list1 {
+
+    height: 20px;
+    position: absolute;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    cursor: pointer;
+    color: rgb(202, 235, 185);
+    font-size: 16px;
+    align-items: flex-start;
+    display: flex;
+    margin-top: 8px;
+    margin-left: 3px;
+
+}
+
+.eltmzhem_list1:hover {
+    color: rgb(162, 205, 140)
+}
+
+
+.eltmzhem_list2 {
+
+    height: 20px;
+    position: absolute;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    cursor: pointer;
+    color: rgb(202, 235, 185);
+    font-size: 16px;
+    align-items: flex-start;
+    display: flex;
+    margin-top: 36px;
+    margin-left: 3px;
+
+}
+
+.eltmzhem_list2:hover {
+    color: rgb(162, 205, 140)
+}
+
