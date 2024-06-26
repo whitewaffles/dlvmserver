@@ -1,0 +1,109 @@
+.slash_list1{
+    margin-left: 70px;
+    margin-top: 55px;
+    user-select: none;
+}
+
+.slash_list2{
+    margin-left: 160px;
+    margin-top: 55px;
+    user-select: none;
+}
+
+.slash_list3{
+    margin-left: 730px;
+    margin-top: 55px;
+    user-select: none;
+}
+
+.slash_list_helpline {
+    position: absolute;
+    background-color: rgb(63, 63, 63);
+    width: 750px;
+    height: 2px;
+    margin-left: 60px;
+    margin-top: 85px;
+}
+
+/*  위에는 설명 */
+.slash_list_number {
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 90px;
+    user-select: none;
+}
+
+.slash_list_name {
+    position: absolute;
+    margin-left: 140px;
+    margin-top: 90px;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.slash_list_name:hover {
+    color: rgb(74, 74, 74);
+}
+
+.slash_list_wkrtjd {
+    color: rgb(65, 65, 65);
+    position: absolute;
+    margin-left: 730px;
+    margin-top: 90px;
+    user-select: none;
+}
+
+.slash_list_line {
+    position: absolute;
+    background-color: rgb(100, 100, 100);
+    width: 750px;
+    height: 2px;
+    margin-left: 60px;
+    margin-top: 115px;
+}
+
+/*  위에는 1번 */
+
+.slash_list_number2 {
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 120px;
+    user-select: none;
+}
+
+.slash_list_name2 {
+    position: absolute;
+    margin-left: 140px;
+    margin-top: 120px;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.slash_list_name2:hover {
+    color: rgb(74, 74, 74);
+}
+
+.slash_list_wkrtjd2 {
+    color: rgb(65, 65, 65);
+    position: absolute;
+    margin-left: 730px;
+    margin-top: 120px;
+    user-select: none;
+}
+
+.slash_list_line2 {
+    position: absolute;
+    background-color: rgb(100, 100, 100);
+    width: 750px;
+    height: 2px;
+    margin-left: 60px;
+    margin-top: 145px;
+}
+
+/*  위에는 2번 */
