@@ -46,6 +46,7 @@
     cursor: pointer;
     font-size: 17px;
     font-weight: bold;
+    user-select: none;
 }
 
 .eltmzhem:hover {
@@ -55,7 +56,8 @@
 .eltmzhem_list {
     height: 75px;
     width: 119px;
-
+    position: fixed;
+    z-index: 1000;
     background-color: rgb(39, 133, 103);
     
 }
@@ -74,6 +76,7 @@
     display: flex;
     margin-top: 8px;
     margin-left: 3px;
+    user-select: none;
 
 }
 
@@ -95,6 +98,7 @@
     display: flex;
     margin-top: 36px;
     margin-left: 3px;
+    user-select: none;
 
 }
 
