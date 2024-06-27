@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     position: relative; /* 추가 */
     background-color: rgb(127, 179, 179);
