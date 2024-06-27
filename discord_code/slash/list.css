@@ -107,3 +107,45 @@
 }
 
 /*  위에는 2번 */
+
+
+.slash_list_number3 {
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 150px;
+    user-select: none;
+}
+
+.slash_list_name3 {
+    position: absolute;
+    margin-left: 140px;
+    margin-top: 150px;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.slash_list_name3:hover {
+    color: rgb(74, 74, 74);
+}
+
+.slash_list_wkrtjd3 {
+    color: rgb(65, 65, 65);
+    position: absolute;
+    margin-left: 730px;
+    margin-top: 150px;
+    user-select: none;
+}
+
+.slash_list_line3 {
+    position: absolute;
+    background-color: rgb(100, 100, 100);
+    width: 750px;
+    height: 2px;
+    margin-left: 60px;
+    margin-top: 175px;
+}
+
+/*  위에는 3번 */
