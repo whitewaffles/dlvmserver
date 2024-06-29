@@ -1,0 +1,31 @@
+안녕하세요.
+디스코드 봇에 슬래시 커맨드를 추가하는 방법입니다.
+일단 전체적인 코드는 일반 코드에 있는
+2번 글인 기초 코드에서 시작하겠습니다.
+
+일단 nextcord 라이브러리를 사용할 것이기 때문에 추가로 import 해야하는 것은 없습니다.
+이제 아래의 코드를 추가해줍니다.
+
+코드
+
+<pre><code class="language-python">
+@bot.slash_command(name="안녕", description="유저에게 인사합니다.")
+#name = 명령  description = 명령에 대한 설명
+async def slash(ctx:nextcord.Interaction):
+    await ctx.send(f"안녕하세요!", ephemeral=False) 
+
+    # 답변 , ephemeral= 이거는 메시지를 누구가 볼 수 있게 설정할지하는 코드
+    # True 이라면 메시지를 보낸이만 볼 수 있고
+    # flsae 이라면 모두가 볼 수 있음
+</code></pre>
+
+
+나머지 코드는 나중에 작성 예정
+ㅤ
+ㅤ
+ㅤ
+ㅤ
+ㅤ
+ㅤ
+ㅤ
+ㅤ
