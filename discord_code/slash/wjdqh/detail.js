@@ -12,8 +12,6 @@ function fetchData() {
         return;
     }
 
-
-
     fetch('/discord_code/slash/wjdqh/content.json') // 절대 경로 사용
         .then(response => {
             if (!response.ok) {
@@ -22,11 +20,27 @@ function fetchData() {
             return response.json();
         })
         .then(data => {
-
             if (data[id]) {
-
                 document.getElementById('title').textContent = data[id].title;
                 document.getElementById('content').textContent = data[id].content;
+                
+                const textPath = data[id].text;
+                fetch(textPath)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(text => {
+                        document.getElementById('text').innerHTML = text.replace(/\n/g, '<br>');
+                        // Prism.js로 코드 블록 강조
+                        Prism.highlightAll();
+                    })
+                    .catch(error => {
+                        console.error('Error fetching text:', error);
+                        document.getElementById('text').textContent = '텍스트를 불러오는 중 오류가 발생했습니다.';
+                    });
             } else {
                 throw new Error('Data with id ' + id + ' not found');
             }
