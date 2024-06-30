@@ -1,31 +1,62 @@
 안녕하세요.
 디스코드 봇에 슬래시 커맨드를 추가하는 방법입니다.
-일단 전체적인 코드는 일반 코드에 있는
-2번 글인 기초 코드에서 시작하겠습니다.
+일단 전체적인 코드는 일반 코드에 있는 2번 글인 기초 코드에서 시작하겠습니다.
+
+<img src="https://ifh.cc/g/c7xLsa.gif" alt="슬래시 커맨드 사용">
+
+
+<strong style="font-size: 20px;">1. 코드 입력하기</strong>
 
 일단 nextcord 라이브러리를 사용할 것이기 때문에 추가로 import 해야하는 것은 없습니다.
 이제 아래의 코드를 추가해줍니다.
 
-코드
 
 <pre><code class="language-python">
 @bot.slash_command(name="안녕", description="유저에게 인사합니다.")
-#name = 명령  description = 명령에 대한 설명
 async def slash(ctx:nextcord.Interaction):
     await ctx.send(f"안녕하세요!", ephemeral=False) 
-
-    # 답변 , ephemeral= 이거는 메시지를 누구가 볼 수 있게 설정할지하는 코드
-    # True 이라면 메시지를 보낸이만 볼 수 있고
-    # flsae 이라면 모두가 볼 수 있음
 </code></pre>
 
 
-나머지 코드는 나중에 작성 예정
-ㅤ
-ㅤ
-ㅤ
-ㅤ
-ㅤ
-ㅤ
-ㅤ
-ㅤ
+이 코드를 추가하고 나서 코드를 실행시키면 이제 디스코드에서
+슬래시 커맨드가 보일 것 입니다.
+
+만약 보이지 않는다면 작업관리자로 가서 디스코드를 우클릭하고
+'작업 끝내기' 를 눌러주고 다시 디스코드를 키시면 슬래시 커맨드가 보이실 겁니다.
+
+<img width="239.5" height="426" src="https://ifh.cc/g/RMRC8d.gif" alt="작업관리자">
+
+
+그럼 이제 '/안녕'을 하면 봇이 '안녕하세요!' 라고 뜨는 것을 확인할 수 있습니다.
+
+
+
+<strong style="font-size: 20px;">2. 코드 설명</strong>
+
+
+일단 슬래시 커맨드를 사용하기 위해서는 <strong style="color: yellow;">@bot</strong>뒤에 <strong style="color: rgb(255, 255, 0);">.command</strong>가 아니라
+<strong style="color: rgb(255, 255, 0);">.slash_command</strong>를 붙이면 슬래시 커맨드를 쓸 수 있게 됩니다.
+그리고 <strong style="color: rgb(0, 195, 255);">description</strong>는 슬래시 커맨드에서만 적용이 됩니다.
+<strong style="color: rgb(255, 255, 0);">.command</strong>에서는 적용이 되지 않습니다.
+왜냐하면 <strong style="color: rgb(255, 255, 0);">.command</strong>는 메시지를 사용자가 명령어를 모두 써야하는 형태이기 때문입니다.
+
+
+그리고 코드에서 2번라인에 있는 <strong style="color: rgb(0, 195, 255);">name</strong>는 /를 사용하였을 때 나타날 명령어의 이름입니다.
+그리고 <strong style="color: rgb(0, 195, 255);">description</strong>는 <strong style="color: rgb(0, 195, 255);">name</strong>의 아래에 있는 설명을 뜻 합니다.
+
+<img width="302" height="88" src="https://ifh.cc/g/MPTMlT.jpg" alt="슬래시 설명">
+
+
+그리고 4번라인에서 ""사이에는 봇이 보내주었으면 좋겠는 문자를 적으면 됩니다.
+
+그리고 이제 4번 라인 끝에 <strong style="color: rgb(0, 195, 255);">ephemeral</strong>는 슬래시 명령어를 사용하였을 때에
+봇이 보내는 명령어를 여러 사용자가 볼 수 있게 할지 못 보게 할지 설정하는 값입니다.
+
+<strong style="color: rgb(0, 195, 255);">ephemeral</strong>를 <strong style="color: blue;">True</strong>로 설정하면 봇이 보내는 메시지는 명령어를 입력한 본인만 볼 수 있게 됩니다.
+
+<img style="transform: scale(0.7);" src="https://ifh.cc/g/Jo9hO3.png" alt="본인만">
+
+
+하지만 <strong style="color: rgb(0, 195, 255);">ephemeral</strong>를 <strong style="color: blue;">False</strong>로 설정하면 봇이 보내는 메시지는 명령어를 모두가 볼 수 있게 됩니다.
+
+
