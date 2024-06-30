@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="detail.css">
     <!-- Prism.js 스타일 시트 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css">
+    <!-- Prism.js 라인 번호 스타일 시트 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/line-numbers/prism-line-numbers.min.css">
 </head>
 <body style="background-color: rgb(84, 139, 141);">
     <a onclick="window.location.href='https://dlvm.netlify.app/'">
@@ -30,22 +32,21 @@
         <div class="content">
             <p class="tjf_name" id="title"></p>
             <p class="tjf_nike" id="content"></p>
-            <p id="text" class="tjf_so"></p> <!-- text를 div로 변경 -->
-            
+            <p id="text" class="tjf_so"></p>
         </div>
-
-        
     </div>
-
-
-
-
-
+    <div class="side_tjf">
+        <a onclick="window.location.href='https://discord.gg/RUg92Wu2Je'">
+            <p class="side_tjf_discord">· 디스코드 서버</p>
+        </a>
+    </div>
     <script src="../../../index/index.js"></script>
     <script src="detail.js"></script>
     <!-- Prism.js 스크립트 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
     <!-- Prism.js 언어 지원 추가 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+    <!-- Prism.js 라인 번호 플러그인 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 </body>
 </html>
