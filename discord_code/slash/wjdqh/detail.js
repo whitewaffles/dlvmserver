@@ -33,7 +33,7 @@ function fetchData() {
                         return response.text();
                     })
                     .then(text => {
-                        document.getElementById('text').innerHTML = text.replace(/\n/g, '<br>');
+                        document.getElementById('text').innerHTML = text.replace(/\n/g, '<br>').replace(/<pre><code class="language-python">/g, '<pre class="line-numbers"><code class="language-python">');
                         // Prism.js로 코드 블록 강조
                         Prism.highlightAll();
                     })
