@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-        if (input.value) {
-            socket.emit('chat message', input.value);
+        if (input.value.trim()) { // Trimmed input value to ensure no whitespace messages are sent
+            socket.emit('chat message', input.value.trim());
             input.value = '';
         }
     });
