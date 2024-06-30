@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io();
+    const socket = io(https://carnelian-abalone-periwinkle.glitch.me/);
 
     const form = document.getElementById('chat-form');
     const input = document.getElementById('message-input');
