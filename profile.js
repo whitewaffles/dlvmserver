@@ -1,8 +1,18 @@
 const SERVER_URL = 'https://fluoridated-nettle-bayberry.glitch.me'; // Glitch 서버 URL을 확인하세요
 
 let user = null;
+let lastRequestTime = 0;
+const MIN_REQUEST_INTERVAL = 5000; // 5초
 
 async function handleCallback(code) {
+    const now = Date.now();
+    if (now - lastRequestTime < MIN_REQUEST_INTERVAL) {
+        console.log('Too many requests. Please wait before trying again.');
+        alert('Please wait a moment before trying to log in again.');
+        return;
+    }
+    lastRequestTime = now;
+
     try {
         console.log('Exchanging code for token...');
         const response = await axios.post(`${SERVER_URL}/auth/discord`, { code });
@@ -15,13 +25,13 @@ async function handleCallback(code) {
         if (error.response) {
             console.error('Error response:', error.response.data);
             console.error('Error status:', error.response.status);
-        }
-        if (error.response && error.response.status === 429) {
-            const retryAfter = error.response.headers['retry-after'] || 5;
-            alert(`Too many requests. Please try again in ${retryAfter} seconds.`);
-            setTimeout(() => handleCallback(code), retryAfter * 1000);
+            if (error.response.status === 429) {
+                alert('Too many login attempts. Please try again later.');
+            } else {
+                alert('An error occurred during login. Please try again later.');
+            }
         } else {
-            alert('An error occurred. Please try again later.');
+            alert('Network error. Please check your internet connection and try again.');
         }
     }
 }
