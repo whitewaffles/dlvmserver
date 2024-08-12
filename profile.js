@@ -10,12 +10,13 @@ async function handleCallback(code) {
         renderProfile();
     } catch (error) {
         console.error('Login failed:', error);
+        window.location.href = '/login';
     }
 }
 
 function handleLogout() {
     localStorage.removeItem('discordUser');
-    window.location.href = '/login.html'; // 로그인 페이지로 리다이렉트
+    window.location.href = '/login';
 }
 
 function renderProfile() {
@@ -28,7 +29,7 @@ function renderProfile() {
             <button onclick="handleLogout()">Logout</button>
         `;
     } else {
-        window.location.href = '/login.html'; // 사용자 정보가 없으면 로그인 페이지로 리다이렉트
+        window.location.href = '/login';
     }
 }
 
@@ -43,7 +44,7 @@ window.onload = () => {
             user = JSON.parse(storedUser);
             renderProfile();
         } else {
-            window.location.href = '/login.html'; // 사용자 정보가 없으면 로그인 페이지로 리다이렉트
+            window.location.href = '/login';
         }
     }
 };
