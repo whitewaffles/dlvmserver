@@ -13,18 +13,27 @@ async function handleCallback(code) {
     try {
         const response = await axios.post(`${SERVER_URL}/auth/discord`, { code });
         user = response.data;
+        localStorage.setItem('discordUser', JSON.stringify(user));
         renderApp();
     } catch (error) {
         console.error('Login failed:', error);
     }
 }
 
+function handleLogout() {
+    user = null;
+    localStorage.removeItem('discordUser');
+    renderApp();
+}
+
 function renderApp() {
-    const container = document.getElementById('login-container');
+    const container = document.getElementById('user-info');
     if (user) {
         container.innerHTML = `
             <h2>Welcome, ${user.username}!</h2>
             <img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png" alt="Avatar" width="100">
+            <p>Email: ${user.email}</p>
+            <button onclick="handleLogout()">Logout</button>
         `;
     } else {
         container.innerHTML = '<button onclick="handleLogin()">Login with Discord</button>';
@@ -38,6 +47,10 @@ window.onload = () => {
     if (code) {
         handleCallback(code);
     } else {
+        const storedUser = localStorage.getItem('discordUser');
+        if (storedUser) {
+            user = JSON.parse(storedUser);
+        }
         renderApp();
     }
 };
