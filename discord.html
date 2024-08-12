@@ -3,48 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실험</title>
+    <title>Discord Login Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #app {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #7289DA;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        img {
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div id="auth-section">
-        <a id="login-link" href="https://discord.com/oauth2/authorize?client_id=1270146158022361092&redirect_uri=https%3A%2F%2Ffluoridated-nettle-bayberry.glitch.me%2Fcallback&response_type=code&scope=identify%20email">
-            디스코드로 로그인
-        </a>
-        <button id="logout-button" style="display: none;">로그아웃</button>
+    <div id="app">
+        <h1>Discord Login Example</h1>
+        <div id="login-container"></div>
     </div>
-
-    <script>
-        // 로그인 상태를 확인하고 관리하는 함수
-        function checkLoginStatus() {
-            const user = new URLSearchParams(window.location.search).get('user');
-
-            if (user) {
-                // 로그인 상태
-                localStorage.setItem('discordUser', user);
-                document.getElementById('login-link').style.display = 'none';
-                document.getElementById('logout-button').style.display = 'inline';
-                document.body.innerHTML += `<p>Welcome, ${JSON.parse(user).username}!</p>`;
-            } else {
-                // 로그아웃 상태
-                document.getElementById('login-link').style.display = 'inline';
-                document.getElementById('logout-button').style.display = 'none';
-            }
-        }
-
-        // 로그아웃 처리
-        function handleLogout() {
-            localStorage.removeItem('discordUser');
-            window.location.href = '/'; // 홈 페이지로 리디렉션
-        }
-
-        // 페이지 로드 시 로그인 상태 확인
-        document.addEventListener('DOMContentLoaded', function() {
-            checkLoginStatus();
-
-            document.getElementById('logout-button').addEventListener('click', function() {
-                handleLogout();
-            });
-        });
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
