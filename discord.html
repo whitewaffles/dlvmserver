@@ -14,47 +14,35 @@
     </div>
 
     <script>
-        // 로그인 상태를 확인하고 관리하는 함수
         function checkLoginStatus() {
             const isLoggedIn = localStorage.getItem('discordLoggedIn');
-
-            if (isLoggedIn) {
-                // 로그인 상태
-                document.getElementById('login-link').style.display = 'none';
-                document.getElementById('logout-button').style.display = 'inline';
-            } else {
-                // 로그아웃 상태
-                document.getElementById('login-link').style.display = 'inline';
-                document.getElementById('logout-button').style.display = 'none';
-            }
+            document.getElementById('login-link').style.display = isLoggedIn ? 'none' : 'inline';
+            document.getElementById('logout-button').style.display = isLoggedIn ? 'inline' : 'none';
         }
 
-        // 로그인 시 호출하는 함수
         function handleLogin() {
             localStorage.setItem('discordLoggedIn', true);
             checkLoginStatus();
         }
 
-        // 로그아웃 시 호출하는 함수
         function handleLogout() {
             localStorage.removeItem('discordLoggedIn');
             checkLoginStatus();
         }
 
-        // 페이지 로드 시 로그인 상태 확인
         document.addEventListener('DOMContentLoaded', function() {
             checkLoginStatus();
 
-            // 로그아웃 버튼 클릭 시 로그아웃 처리
             document.getElementById('logout-button').addEventListener('click', function() {
                 handleLogout();
+                // 여기서 로그아웃 후, 로그아웃 처리 페이지로 리디렉션할 수 있습니다.
+                window.location.href = 'https://dlvm.netlify.app'; // 로그아웃 후 리디렉션할 URL
             });
-        });
 
-        // 콜백 페이지로 돌아왔을 때 로그인 처리
-        if (window.location.pathname === '/callback') {
-            handleLogin();
-        }
+            if (window.location.pathname === '/callback') {
+                handleLogin();
+            }
+        });
     </script>
 </body>
 </html>
