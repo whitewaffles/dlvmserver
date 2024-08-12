@@ -46,6 +46,8 @@ window.onload = () => {
     const code = urlParams.get('code');
     if (code) {
         handleCallback(code);
+        // 콜백 처리 후 URL에서 코드 제거
+        window.history.replaceState({}, document.title, "/discord");
     } else {
         const storedUser = localStorage.getItem('discordUser');
         if (storedUser) {
