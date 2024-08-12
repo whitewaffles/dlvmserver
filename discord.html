@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실험</title>
+</head>
+<body>
+    <div id="auth-section">
+        <a id="login-link" href="https://discord.com/oauth2/authorize?client_id=1270146158022361092&redirect_uri=https%3A%2F%2Fdlvm.netlify.app%2Fcallback&response_type=code&scope=identify%20email">
+            디스코드로 로그인
+        </a>
+        <button id="logout-button" style="display: none;">로그아웃</button>
+    </div>
+
+    <script>
+        // 로그인 상태를 확인하고 관리하는 함수
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('discordLoggedIn');
+
+            if (isLoggedIn) {
+                // 로그인 상태
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('logout-button').style.display = 'inline';
+            } else {
+                // 로그아웃 상태
+                document.getElementById('login-link').style.display = 'inline';
+                document.getElementById('logout-button').style.display = 'none';
+            }
+        }
+
+        // 로그인 시 호출하는 함수
+        function handleLogin() {
+            localStorage.setItem('discordLoggedIn', true);
+            checkLoginStatus();
+        }
+
+        // 로그아웃 시 호출하는 함수
+        function handleLogout() {
+            localStorage.removeItem('discordLoggedIn');
+            checkLoginStatus();
+        }
+
+        // 페이지 로드 시 로그인 상태 확인
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+
+            // 로그아웃 버튼 클릭 시 로그아웃 처리
+            document.getElementById('logout-button').addEventListener('click', function() {
+                handleLogout();
+            });
+        });
+
+        // 콜백 페이지로 돌아왔을 때 로그인 처리
+        if (window.location.pathname === '/callback') {
+            handleLogin();
+        }
+    </script>
+</body>
+</html>
