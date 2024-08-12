@@ -2,6 +2,7 @@ const SERVER_URL = 'https://fluoridated-nettle-bayberry.glitch.me'; // Glitch �
 
 let user = null;
 
+// profile.js
 async function handleCallback(code) {
     try {
         const response = await axios.post(`${SERVER_URL}/auth/discord`, { code });
@@ -10,7 +11,14 @@ async function handleCallback(code) {
         renderProfile();
     } catch (error) {
         console.error('Login failed:', error);
-        window.location.href = '/login';
+        if (error.response && error.response.status === 429) {
+            const retryAfter = error.response.headers['retry-after'] || 5;
+            alert(`Too many requests. Please try again in ${retryAfter} seconds.`);
+            setTimeout(() => handleCallback(code), retryAfter * 1000);
+        } else {
+            alert('An error occurred. Please try again later.');
+            // 로그인 페이지로 리다이렉트하는 대신 현재 페이지에 남습니다.
+        }
     }
 }
 
